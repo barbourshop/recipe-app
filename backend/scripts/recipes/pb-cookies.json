@@ -1,0 +1,46 @@
+{
+    "title": "Peanut Butter Cookies",
+    "description": "A classic peanut butter cookie recipe with a soft and chewy texture.",
+    "instructions": "1. Preheat oven to 375°F (190°C).\n2. Cream together the shortening (or softened butter), peanut butter, sugar, and brown sugar.\n3. Add the egg and mix well.\n4. In a separate bowl, sift together the flour, baking powder, baking soda, and salt.\n5. Gradually add the dry ingredients to the wet mixture, mixing until well combined.\n6. Roll dough into small balls and place on a baking sheet.\n7. Flatten each ball with a fork in a crisscross pattern.\n8. Bake for 10-12 minutes or until golden brown.\n9. Let cool on a wire rack before serving.",
+    "prep_time": 15,
+    "cook_time": 12,
+    "servings": 24,
+    "ingredients": [
+        {
+            "name": "Softened butter)",
+            "quantity": "1/2 cup"
+        },
+        {
+            "name": "Peanut butter",
+            "quantity": "1/2 cup (125g)"
+        },
+        {
+            "name": "Sugar",
+            "quantity": "1/2 cup (100g)"
+        },
+        {
+            "name": "Brown sugar (packed)",
+            "quantity": "1/2 cup (90g)"
+        },
+        {
+            "name": "Egg",
+            "quantity": "1"
+        },
+        {
+            "name": "Sifted flour",
+            "quantity": "1 1/4 cups (150g)"
+        },
+        {
+            "name": "Baking powder",
+            "quantity": "1/2 tsp"
+        },
+        {
+            "name": "Baking soda",
+            "quantity": "3/4 tsp"
+        },
+        {
+            "name": "Salt",
+            "quantity": "1/4 tsp"
+        }
+    ]
+}

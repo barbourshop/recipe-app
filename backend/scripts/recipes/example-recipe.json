@@ -1,0 +1,50 @@
+{
+    "title": "Grandma's Apple Pie",
+    "description": "A classic, comforting apple pie recipe.",
+    "instructions": "1. Make the crust.\n2. Prepare the filling.\n3. Assemble and bake.",
+    "prep_time": 90,
+    "cook_time": 60,
+    "servings": 8,
+    "ingredients": [
+      {
+        "name": "Flour",
+        "quantity": "2 1/2 cups"
+      },
+      {
+        "name": "Butter",
+        "quantity": "1 cup (cold)"
+      },
+      {
+        "name": "Shortening",
+        "quantity": "1/2 cup (cold)"
+      },
+      {
+        "name": "Ice Water",
+        "quantity": "6-8 tbsp"
+      },
+      {
+        "name": "Apples",
+        "quantity": "6-8 medium"
+      },
+      {
+        "name": "Sugar",
+        "quantity": "3/4 cup"
+      },
+      {
+        "name": "Cinnamon",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "Nutmeg",
+        "quantity": "1/4 tsp"
+      },
+      {
+        "name": "Lemon Juice",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "Cornstarch",
+        "quantity": "2 tbsp"
+      }
+    ]
+  }

@@ -1,0 +1,30 @@
+{
+    "title": "Breadmaker Baguette Bread",
+    "description": "Breadmaker Baguette Dough finished in the oven",
+    "instructions": "1. Make the dough\n2. Divide into 4 balls & cover with damp cloth to rest for 20m.\n3. Roll into loaves on parchment paper & let rise for 40-60m.\nBake at 470 until brown",
+    "prep_time": 1440,
+    "cook_time": 15,
+    "servings": 3,
+    "ingredients": [
+      {
+        "name": "Water",
+        "quantity": "1 1/4 cups"
+      },
+      {
+        "name": "Flour",
+        "quantity": "1540 g"
+      },
+      {
+        "name": "Salt",
+        "quantity": "2 tsp"
+      },
+      {
+        "name": "Lemon Juice",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "Yeast",
+        "quantity": "1 pkg"
+      }
+    ]
+  }

@@ -1,0 +1,9 @@
+.env
+node_modules/
+test-results/
+.DS_Store
+src/.DS_Store
+server/.DS_Store
+coverage/
+backend/node_modules/
+frontend/familyrecipes/recipeapp/__pycache__/
