@@ -6,4 +6,5 @@ src/.DS_Store
 server/.DS_Store
 coverage/
 backend/node_modules/
+backend/scripts/.env
 frontend/familyrecipes/recipeapp/__pycache__/
