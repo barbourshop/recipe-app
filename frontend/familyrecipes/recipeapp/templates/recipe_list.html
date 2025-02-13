@@ -1,14 +1,236 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Recipes</title>
+    <title>My Recipe Collection</title>
+    <style>
+        /* Previous styles remain the same */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+            color: #2c3e50;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        /* New search section styles */
+        .search-section {
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .search-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .search-input {
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #2c3e50;
+        }
+
+        .search-button {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .search-button:hover {
+            background-color: #34495e;
+        }
+
+        /* Previous recipe grid styles */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        /* Rest of the previous styles remain the same */
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recipe-content {
+            padding: 1.5rem;
+        }
+
+        .recipe-title {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .recipe-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .recipe-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-item {
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .meta-label {
+            color: #666;
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        .meta-value {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .recipe-instructions {
+            color: #666;
+            font-size: 0.95rem;
+            max-height: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .recipe-instructions::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(transparent, white);
+        }
+    </style>
 </head>
 <body>
-    <h1>Recipe List</h1>
-    <ul>
+    <div class="header">
+        <h1>My Recipe Collection</h1>
+    </div>
+
+    <form class="search-section" method="GET" action="">
+        <div class="search-grid">
+            <div class="search-group">
+                <label class="search-label" for="recipe-search">Search Recipes</label>
+                <input 
+                    type="text" 
+                    id="recipe-search" 
+                    name="q" 
+                    class="search-input" 
+                    placeholder="Enter recipe name..."
+                    value="{{ request.GET.q }}"
+                >
+            </div>
+            <div class="search-group">
+                <label class="search-label" for="ingredient-search">Search by Ingredient</label>
+                <input 
+                    type="text" 
+                    id="ingredient-search" 
+                    name="ingredient" 
+                    class="search-input" 
+                    placeholder="Enter ingredient..."
+                    value="{{ request.GET.ingredient }}"
+                >
+            </div>
+        </div>
+        <button type="submit" class="search-button">Search Recipes</button>
+    </form>
+    
+    <div class="recipe-grid">
         {% for recipe in recipes %}
-            <li>{{ recipe.title }}</li>
+        <div class="recipe-card">
+            <div class="recipe-content">
+                <h2 class="recipe-title">{{ recipe.title }}</h2>
+                
+                <p class="recipe-description">{{ recipe.description }}</p>
+                
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Prep Time</span>
+                        <span class="meta-value">{{ recipe.prep_time }}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Cook Time</span>
+                        <span class="meta-value">{{ recipe.cook_time }}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Servings</span>
+                        <span class="meta-value">{{ recipe.servings }}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Total Time</span>
+                        <span class="meta-value">{{ recipe.cook_time|add:recipe.prep_time }}</span>
+                    </div>
+                </div>
+                
+                <div class="recipe-instructions">
+                    {{ recipe.instructions|linebreaks }}
+                </div>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </body>
 </html>
