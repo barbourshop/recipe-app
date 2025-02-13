@@ -1,0 +1,26 @@
+{
+    "title": "Springerle",
+    "description": "A traditional German cookie flavored with anise and known for its beautiful molded designs.",
+    "instructions": "1. Stir eggs and sugar together until well combined.\n2. Mix in anise seed.\n3. Gradually add sifted flour while stirring.\n4. Continue mixing until a dough forms.\n5. Roll out the dough and press with a Springerle mold or roller.\n6. Cut into shapes and let them dry for several hours or overnight.\n7. Preheat oven to 300°F (150°C) and bake until just set but not browned.",
+    "prep_time": 20,
+    "cook_time": 15,
+    "servings": 24,
+    "ingredients": [
+        {
+            "name": "Eggs",
+            "quantity": "2"
+        },
+        {
+            "name": "Sugar",
+            "quantity": "1 cup"
+        },
+        {
+            "name": "Flour (sifted)",
+            "quantity": "2 cups"
+        },
+        {
+            "name": "Anise seed",
+            "quantity": "1 to 2 teaspoons"
+        }
+    ]
+}
