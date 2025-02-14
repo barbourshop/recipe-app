@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ recipe.title }} - Recipe Details</title>
+    <style>
+        /* Include the same base styles from recipe_list.html */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .recipe-detail {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #34495e;
+        }
+
+        .recipe-title {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .recipe-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            color: #666;
+            font-size: 0.9rem;
+            display: block;
+        }
+
+        .meta-value {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .recipe-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ingredients-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .instructions {
+            white-space: pre-line;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="recipe-detail">
+        <h1 class="recipe-title">{{ recipe.title }}</h1>
+        
+        <div class="recipe-meta">
+            <div class="meta-item">
+                <span class="meta-label">Prep Time</span>
+                <span class="meta-value">{{ recipe.prep_time }} mins</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Cook Time</span>
+                <span class="meta-value">{{ recipe.cook_time }} mins</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Total Time</span>
+                <span class="meta-value">{{ recipe.cook_time|add:recipe.prep_time }} mins</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Servings</span>
+                <span class="meta-value">{{ recipe.servings }}</span>
+            </div>
+        </div>
+
+        <div class="recipe-section">
+            <h2 class="section-title">Description</h2>
+            <p>{{ recipe.description }}</p>
+        </div>
+
+        <div class="recipe-section">
+            <h2 class="section-title">Ingredients</h2>
+            <ul class="ingredients-list">
+                {% for recipe_ingredient in ingredients %}
+                <li>{{ recipe_ingredient.quantity }} {{ recipe_ingredient.ingredient.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="recipe-section">
+            <h2 class="section-title">Instructions</h2>
+            <div class="instructions">
+                {{ recipe.instructions|linebreaks }}
+            </div>
+        </div>
+    </div>
+
+    <a href="{% url 'recipe_list' %}?{{ search_params }}" class="back-button" title="Back to recipes">×</a>
+</body>
+</html>

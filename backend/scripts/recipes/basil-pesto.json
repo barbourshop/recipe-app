@@ -1,0 +1,38 @@
+{
+    "title": "Basil Pesto",
+    "description": "Homemade basil pesto recipe.",
+    "ingredients": [
+      {
+        "name": "Toasted Nuts (Pine/Walnut)",
+        "quantity": "64g"
+      },
+      {
+        "name": "Lemon/Lime Juice",
+        "quantity": "2 TBSP (1 lemon/lime)"
+      },
+      {
+        "name": "Garlic Clove",
+        "quantity": "1 clove, diced"
+      },
+      {
+        "name": "Salt",
+        "quantity": "to taste"
+      },
+      {
+        "name": "Basil Leaves",
+        "quantity": "4 oz package"
+      },
+      {
+        "name": "Olive Oil",
+        "quantity": "60mL+"
+      },
+      {
+        "name": "Asiago/Parmesan Cheese",
+        "quantity": "31g, shredded"
+      }
+    ],
+    "instructions": "Blend nuts, juice, garlic, salt, cheese, and olive oil until blended. Add basil and more olive oil.",
+    "prep_time": 10,
+    "cook_time": 0,
+    "servings": 10
+  }

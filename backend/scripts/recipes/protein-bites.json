@@ -1,0 +1,38 @@
+{
+    "title": "Protein Bites",
+    "description": "Protein bites with peanut butter, oats, and chocolate chips.",
+    "ingredients": [
+      {
+        "name": "Peanut Butter",
+        "quantity": "300g (150g half recipe)"
+      },
+      {
+        "name": "Chia Seeds",
+        "quantity": "40g (20g half recipe)"
+      },
+      {
+        "name": "Honey",
+        "quantity": "180g (80g half recipe)"
+      },
+      {
+        "name": "Vanilla Extract",
+        "quantity": "8g (4g half recipe)"
+      },
+      {
+        "name": "Old Fashioned Oats",
+        "quantity": "300g (145g half recipe)"
+      },
+      {
+        "name": "Coarsely Pulsed Almond/Walnut",
+        "quantity": "130g (65g half recipe)"
+      },
+      {
+        "name": "Mini Chocolate Chips",
+        "quantity": "30g (or less)"
+      }
+    ],
+    "instructions": "Place 11 cup Pyrex on a digital scale. Press 'On-Tare-Units' set units to grams. 'Tare' between all ingredients. Stir PB, chia seeds, honey, and vanilla extract. Then add oats and nuts. Stir. Refrigerate for 20 minutes. Roll into bites. Roll bites in mini chocolate chips. Keep in fridge.",
+    "prep_time": 20,
+    "cook_time": 0,
+    "servings": 30
+  }

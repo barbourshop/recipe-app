@@ -3,7 +3,6 @@
 <head>
     <title>My Recipe Collection</title>
     <style>
-        /* Previous styles remain the same */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -24,7 +23,6 @@
             font-weight: 700;
         }
 
-        /* New search section styles */
         .search-section {
             max-width: 800px;
             margin: 0 auto 2rem auto;
@@ -80,7 +78,6 @@
             background-color: #34495e;
         }
 
-        /* Previous recipe grid styles */
         .recipe-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -98,9 +95,14 @@
             transition: transform 0.2s;
         }
 
-        /* Rest of the previous styles remain the same */
         .recipe-card:hover {
             transform: translateY(-5px);
+        }
+
+        .recipe-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .recipe-content {
@@ -124,7 +126,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 0.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .meta-item {
@@ -165,54 +167,26 @@
         }
 
         select.search-input {
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 1em;
-    padding-right: 2.5rem;
-}
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
 
-select.search-input:focus {
-    outline: none;
-    border-color: #2c3e50;
-}
+        select.search-input:focus {
+            outline: none;
+            border-color: #2c3e50;
+        }
 
-/* Add hover state */
-select.search-input:hover {
-    border-color: #34495e;
-}
+        select.search-input:hover {
+            border-color: #34495e;
+        }
 
-/* Style for options */
-select.search-input option {
-    padding: 0.5rem;
-}
-.ingredients-dropdown {
-    position: absolute;
-    background: white;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    margin-top: 4px;
-    max-height: 300px;
-    overflow-y: auto;
-    width: 100%;
-    z-index: 10;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.ingredient-option {
-    display: block;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-}
-
-.ingredient-option:hover {
-    background-color: #f5f5f5;
-}
-
-.ingredient-option input {
-    margin-right: 0.5rem;
-}
+        select.search-input option {
+            padding: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -235,8 +209,6 @@ select.search-input option {
             </div>
             <div class="search-group">
                 <label class="search-label" for="ingredient-search">Filter by Ingredient</label>
-                <!-- Add debug output -->
-                {{ all_ingredients }}
                 <select 
                     id="ingredient-search" 
                     name="ingredient" 
@@ -258,34 +230,36 @@ select.search-input option {
     <div class="recipe-grid">
         {% for recipe in recipes %}
         <div class="recipe-card">
-            <div class="recipe-content">
-                <h2 class="recipe-title">{{ recipe.title }}</h2>
-                
-                <p class="recipe-description">{{ recipe.description }}</p>
-                
-                <div class="recipe-meta">
-                    <div class="meta-item">
-                        <span class="meta-label">Prep Time</span>
-                        <span class="meta-value">{{ recipe.prep_time }}</span>
+            <a href="{% url 'recipe_detail' recipe.id %}?{{ request.GET.urlencode }}" class="recipe-link">
+                <div class="recipe-content">
+                    <h2 class="recipe-title">{{ recipe.title }}</h2>
+                    
+                    <p class="recipe-description">{{ recipe.description }}</p>
+                    
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Prep Time</span>
+                            <span class="meta-value">{{ recipe.prep_time }} mins</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Cook Time</span>
+                            <span class="meta-value">{{ recipe.cook_time }} mins</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Servings</span>
+                            <span class="meta-value">{{ recipe.servings }}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Total Time</span>
+                            <span class="meta-value">{{ recipe.cook_time|add:recipe.prep_time }} mins</span>
+                        </div>
                     </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Cook Time</span>
-                        <span class="meta-value">{{ recipe.cook_time }}</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Servings</span>
-                        <span class="meta-value">{{ recipe.servings }}</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Total Time</span>
-                        <span class="meta-value">{{ recipe.cook_time|add:recipe.prep_time }}</span>
+                    
+                    <div class="recipe-instructions">
+                        {{ recipe.instructions|linebreaks }}
                     </div>
                 </div>
-                
-                <div class="recipe-instructions">
-                    {{ recipe.instructions|linebreaks }}
-                </div>
-            </div>
+            </a>
         </div>
         {% endfor %}
     </div>

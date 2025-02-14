@@ -1,0 +1,27 @@
+{
+    "title": "Vanilla Cream Cheese Frosting",
+    "description": "A classic vanilla cream cheese frosting recipe.",
+    "instructions": "Beat until smooth in mixer.",
+    "ingredients": [
+      {
+        "name": "Softened Cream Cheese",
+        "quantity": "8 oz"
+      },
+      {
+        "name": "Softened Butter",
+        "quantity": "1/2 stick"
+      },
+      {
+        "name": "Vanilla Extract",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "Salt",
+        "quantity": "Dash"
+      },
+      {
+        "name": "Powdered Sugar",
+        "quantity": "1 lb"
+      }
+    ]
+  }

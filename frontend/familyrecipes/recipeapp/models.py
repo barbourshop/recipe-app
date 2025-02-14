@@ -131,7 +131,7 @@ class Ingredients(models.Model):
 
 
 class RecipeIngredients(models.Model):
-    recipe = models.OneToOneField('Recipes', models.DO_NOTHING, primary_key=True)  # The composite primary key (recipe_id, ingredient_id) found, that is not supported. The first column is selected.
+    recipe = models.ForeignKey('Recipes', models.DO_NOTHING, primary_key=True, related_name='ingredients') # related_name added
     ingredient = models.ForeignKey(Ingredients, models.DO_NOTHING)
     quantity = models.CharField(max_length=255, blank=True, null=True)
 
